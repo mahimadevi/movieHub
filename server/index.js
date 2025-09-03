@@ -8,7 +8,10 @@ import routes from './src/routes/index.js';
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: "https://movie-hub-n3r1.vercel.app", // allow your frontend
+  credentials: true, // if you're using cookies/auth headers
+}));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
